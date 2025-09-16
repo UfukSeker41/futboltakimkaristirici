@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Futbol Takımı Karıştırıcı</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-green-200 to-blue-200 dark:from-gray-900 dark:to-gray-800 min-h-screen flex flex-col items-center justify-center px-2">
+  <div class="w-full max-w-2xl bg-white dark:bg-gray-900 rounded-xl shadow-lg p-4 sm:p-8 mt-4 sm:mt-8">
+    <h1 class="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6 text-green-700 dark:text-green-300">Futbol Takımı Karıştırıcı</h1>
+    <form id="teamForm" class="space-y-3 sm:space-y-4">
+      <div>
+        <label class="block text-gray-700 dark:text-gray-200 font-semibold mb-1 sm:mb-2">Oyuncu İsimleri (her satıra bir isim):</label>
+        <textarea id="playerNames" rows="5" class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-400 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 text-sm sm:text-base" placeholder="Örn: Ahmet\nMehmet\nUfuk"></textarea>
+      </div>
+      <div class="flex-1">
+        <label class="block text-gray-700 dark:text-gray-200 font-semibold mb-1 sm:mb-2">Kişi Başına Minimum Oyuncu:</label>
+        <input type="number" id="minPlayers" min="1" value="1" class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-400 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 text-sm sm:text-base">
+      </div>
+      <div class="mt-2 sm:mt-4">
+        <label class="block text-gray-700 dark:text-gray-200 font-semibold mb-1 sm:mb-2">Takım İsimleri (isteğe bağlı):</label>
+        <div id="teamNamesInputs" class="flex flex-col gap-2"></div>
+      </div>
+      <div class="mt-2 sm:mt-4">
+        <label class="block text-gray-700 dark:text-gray-200 font-semibold mb-1 sm:mb-2">Aynı Takımda Olması Gerekenler (örn: Ali, Veli):</label>
+        <div id="mustTogetherList" class="space-y-2"></div>
+        <div class="flex flex-col sm:flex-row gap-2 mt-2">
+          <input type="text" id="mustTogether1" placeholder="Kişi 1" class="flex-1 border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 text-sm sm:text-base">
+          <input type="text" id="mustTogether2" placeholder="Kişi 2" class="flex-1 border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 text-sm sm:text-base">
+          <button type="button" id="addMustTogether" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg mt-2 sm:mt-0">Ekle</button>
+        </div>
+      </div>
+      <div class="mt-2 sm:mt-4">
+        <label class="block text-gray-700 dark:text-gray-200 font-semibold mb-1 sm:mb-2">Aynı Takımda Olmaması Gerekenler (örn: Ahmet,Mehmet):</label>
+        <div id="notTogetherList" class="space-y-2"></div>
+        <div class="flex flex-col sm:flex-row gap-2 mt-2">
+          <input type="text" id="notTogether1" placeholder="Kişi 1" class="flex-1 border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-red-400 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 text-sm sm:text-base">
+          <input type="text" id="notTogether2" placeholder="Kişi 2" class="flex-1 border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-red-400 dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700 text-sm sm:text-base">
+          <button type="button" id="addNotTogether" class="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg mt-2 sm:mt-0">Ekle</button>
+        </div>
+      </div>
+      <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition text-base sm:text-lg">Takımları Karıştır</button>
+    </form>
+    <div id="result" class="mt-6 sm:mt-8"></div>
+  </div>
+  <button type="button" id="toggleDark" class="absolute top-2 right-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-3 py-1 rounded-lg text-xs shadow">🌙/☀️</button>
+  <script src="script.js"></script>
+</body>
+</html>
